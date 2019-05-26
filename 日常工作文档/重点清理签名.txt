@@ -1,0 +1,45 @@
+find /usr/local/upload -mtime +7 -type f -exec rm -f {} \;
+
+
+
+find /oradata/diag/rdbms/cusas/cusas/trace -ctime +30|xargs rm -f   删除数据库日志目录
+
+
+使用date命令即可设置系统时间。
+
+1  、查看系统时间
+
+date                                         
+
+2、设置当前系统时间为2015年5月8日19点48分0秒
+
+date  -s "2015-5-8 19:48:00"    
+
+
+
+select *  from   mobile_permission_user  --管理员
+select * from  mobile_booktime_operation  where sheetno='300988564496'    --记录预约，签单在途表 
+insert into  mobile_booktime_operation(booktime_id,processinstid,sheetno,starttime,endtime,date1,date2)   
+values('23849146','9818030518500747','300988564496',to_date('20180305 14:00:00','yyyy-mm-dd hh24:mi:ss'),
+to_date('2018-03-05 14:30:00','yyyy-mm-dd hh24:mi:ss'),to_date('2018-03-05 13:30:00','yyyy-mm-dd hh24:mi:ss'),
+to_date('2018-03-05 14:10:00','yyyy-mm-dd hh24:mi:ss')) --解决无法签到
+select * from Mobile_User;
+select * from MOBILE_OPERATION_LOG where processinstid='9717113020294172' --回单信息
+select count(*) from (select max(operator_date),processinstid from MOBILE_OPERATION_LOG where operator_date between 
+to_date('2017/12/1 00:00:00','yyyy/mm/dd hh24:mi:ss') and to_date('2017/12/31 23:59:59','yyyy/mm/dd hh24:mi:ss') and 
+ operator_name='装机单回单' group by  processinstid )  
+select * from mobile_meterial
+select * from Mobile_Meterial_Use 
+select * from Operation_Log
+select * from Mobile_BookTime_Operation_Old where processinstid ='9717113020294172'  --记录预约，签到历史表
+/*select count(b.processinstid) from (select max(date2),max(processinstid) id, address from Mobile_BookTime_Operation_Old where date2 between to_date('2017/12/1 00:00:00','yyyy/mm/dd hh24:mi:ss') 
+and to_date('2017/12/7 23:59:59','yyyy/mm/dd hh24:mi:ss')  group by  address)a ,
+(select max(operator_date),processinstid from MOBILE_OPERATION_LOG where operator_date between 
+to_date('2017/12/1 00:00:00','yyyy/mm/dd hh24:mi:ss') and to_date('2017/12/7 23:59:59','yyyy/mm/dd hh24:mi:ss') and 
+ operator_name='装机单回单' group by  processinstid ) b where a.id=b.processinstid*/
+
+select * from sninfo where  srv_order_id ='9717081044279191';   
+ 
+update  Mobile_BookTime_Operation_Old  set   remarks='测试'   where  sheetno='300784507247'
+select * from  Mobile_BookTime_Operation_Old where  sheetno='300784507247'
+

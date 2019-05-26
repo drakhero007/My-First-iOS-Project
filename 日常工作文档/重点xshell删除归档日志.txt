@@ -1,0 +1,27 @@
+DE利用外网首先登陆生产环境113.5.255.146:10224
+然后跳到数据库ssh 133.224.206.153
+进行删除操作
+[root@sasjk logs]# ssh 133.224.206.153
+root@133.224.206.153's password: unicom!23
+Last login: Tue Dec 16 15:35:19 2014 from 133.224.206.157
+[root@sasdb ~]# hostname
+sasdb
+[root@sasdb ~]# su - oracle
+rman target sas/sas
+查看归档日志状态
+list archivelog all;
+删除归档日志
+DELETE ARCHIVELOG ALL COMPLETED BEFORE 'SYSDATE-7';
+步控制文件的信息和实际物理文件的信息        
+crosscheck archivelog all;     crosscheck:反复核对,多方面求证
+删除全部过期的归档日志
+delete expired archivelog all;
+退出RMAN :   quit 
+
+========================
+xshell  RMAN 学习博客地址：
+http://blog.csdn.net/junsisi/article/details/1788495
+
+RMAN备份
+
+数据位置  /oradata/flash_recovery_area/CUSAS/archivelog

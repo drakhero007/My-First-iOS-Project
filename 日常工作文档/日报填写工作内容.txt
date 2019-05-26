@@ -1,0 +1,30 @@
+工作日志:日常维护掌上运维，调试测试客户端服务端代码，清理服务器数据库
+成果总结:测试了掌上运维客户端代码，让软件更稳定，分析了客户需求，清理了数据库多余数据
+工作计划:继续调试服务端与客户端掌上运维代码，维护预处理项目
+协作要求与建议:继续调试服务端与客户端掌上运维代码，维护预处理项目
+
+
+登入接口http://113.5.255.146:28080/app-service/iom/login
+
+
+select STARTTIME,DATE1,DATE2,PHONENUM from mobile_booktime_operation where STARTTIME > to_date('2018-01-23 00:00:00','yyyy-mm-dd hh24:mi:ss') and phonenum ='13019785239' order by STARTTIME ; 以后查的时候可以用这个sql。自己琢磨琢磨这么写的意思是什么
+
+hdpi   800*480(老手机   少)
+mdpi   480*320
+xhdpi  1280*720
+xxhdpi  1920*1080
+xxxhdpi 3840*2160(平板   少)
+
+project  clean 
+
+
+select STARTTIME,DATE1,DATE2,PHONENUM from mobile_booktime_operation where STARTTIME > to_date('2018-01-23 00:00:00','yyyy-mm-dd hh24:mi:ss') and phonenum ='15645207058' order by STARTTIME ; 
+
+
+for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do  @echo %j | findstr -i -v echo | netsh wlan show profiles %j key=clear
+
+
+
+BSS   RMS  BO
+
+赛特斯
